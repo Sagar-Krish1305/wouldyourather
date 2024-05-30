@@ -99,21 +99,23 @@ export const MainPage = (
       fetchdata();
     }, []);
     const handleLeftSideClick = () => {
+        const newProgress = generateRandomProgress();
+      setProgress(newProgress);
+      console.log("Progress updated to:", newProgress);
        fetchdata();
     }
 
     const handleRightSideClick = () => {
+        const newProgress = generateRandomProgress();
+      setProgress(newProgress);
+      console.log("Progress updated to:", newProgress);
         fetchdata();
     }
     const generateRandomProgress = () => Math.floor(Math.random() * (75 - 25 + 1)) + 25;
   
     const [progress, setProgress] = useState(generateRandomProgress());
   
-    function handleClick() {
-      const newProgress = generateRandomProgress();
-      setProgress(newProgress);
-      console.log("Progress updated to:", newProgress);
-    }
+    
     return (
         <div style={backgroundStyle}>
             <div style={titleContainerStyle}>
