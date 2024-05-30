@@ -1,6 +1,11 @@
 import React from 'react'
+import {MainPage} from "./Krish/Pages/Main Page/MainPage.jsx";
+const App = () => {
+    return (
+        <div>
+            <MainPage></MainPage>
+        </div>
+    );
+};
 
-function App() {
-
-    return <h1>Krish</h1>
-}
+export default App;
