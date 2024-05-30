@@ -34,8 +34,18 @@ function App() {
     }
     fetchdata();
   }, []);
+  
+  const generateRandomProgress = () => Math.floor(Math.random() * (75 - 25 + 1)) + 25;
 
+  const [progress, setProgress] = useState(generateRandomProgress());
+
+  function handleClick() {
+    const newProgress = generateRandomProgress();
+    setProgress(newProgress);
+    console.log("Progress updated to:", newProgress);
+  }
   return (
+    
     <div>
       <h1>Would You Rather</h1>
 
@@ -43,9 +53,9 @@ function App() {
           <p>Option 1: {part1}</p>
           <p>Option 2: {part2}</p>
         </div>
-  
     </div>
-  );
+);
 }
 
 export default App;
+
