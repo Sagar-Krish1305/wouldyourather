@@ -1,4 +1,3 @@
-// src/Progress.jsx
 import React from 'react';
 import styles from './progress.module.css';
 
@@ -34,14 +33,14 @@ const AnimatePercentage = React.memo(({ value, duration }) => {
 
 function _Progress({
     progress = 0,
-    strokeWidth = 4,
-    ballStrokeWidth = 16,
+    strokeWidth = 27, // Increased outer radius thickness
+    ballStrokeWidth = 12, // Increased ball stroke width
     transitionDuration = 0.5,
     transitionTimingFunction = 'ease',
-    background = '#dde2e9',
+    background = '',
     hideBall = false,
     hideValue = false,
-    gradient = [{ stop: 0.0, color: '#00bc9b' }, { stop: 1, color: '#5eaefd' }],
+    color = '#598ef0', // Default color for the progress bar
     subtitle = "",
     style,
     className,
@@ -51,7 +50,6 @@ function _Progress({
     const width = 200;
     const center = width / 2;
     const height = 200;
-    const [unique] = React.useState(() => Math.random().toString());
     const rotate = -90; // Adjust rotation for full circle
     const r = center - strokeWidth / 2 - ballStrokeWidth / 2;
     const circumference = Math.PI * r * 2;
@@ -60,15 +58,8 @@ function _Progress({
     return (
         <div className={`${className} ${styles.progress}`} style={style}>
             <svg viewBox={`0 0 ${width} ${height}`} className={styles.svg}>
-                <defs>
-                    <linearGradient id={`gradient${unique}`} x1="0%" y1="0%" x2="0%" y2="100%">
-                        {gradient.map(({ stop, color }) => (
-                            <stop key={stop} offset={stop} stopColor={color} />
-                        ))}
-                    </linearGradient>
-                </defs>
                 {!hideValue && (
-                    <text x={center} y={center} textAnchor="middle" fontSize="30" fill="#3c3c3c">
+                    <text x={center} y={center} textAnchor="middle" fontSize="50" fill={"#ffffff"}>
                         {progress}{suffix}
                     </text>
                 )}
@@ -97,7 +88,7 @@ function _Progress({
                     strokeDasharray={circumference}
                     strokeDashoffset={offset}
                     fill="none"
-                    stroke={`url(#gradient${unique})`}
+                    stroke={color}
                     strokeLinecap="round"
                 />
                 {!hideBall && (
@@ -111,7 +102,7 @@ function _Progress({
                         strokeDasharray={`1 ${circumference}`}
                         strokeDashoffset={offset}
                         fill="none"
-                        stroke={`url(#gradient${unique})`}
+                        stroke={color}
                         strokeLinecap="round"
                     />
                 )}

@@ -1,6 +1,8 @@
-import React from 'react';
-
-export const MainPage = () => {
+import React , {useEffect , useState} from 'react';
+import fetchwyrdata from "../../../fetchdata/fetchwyr";
+import Progress from "../../../Progress"
+export const MainPage = (
+) => {
 
     const isMobile = window.innerWidth <= 768;
 
@@ -33,7 +35,6 @@ export const MainPage = () => {
     }
 
     const titleStyle = {
-        fontFamily: 'Open Sans',
         fontSize: isMobile ? '3em' : '5em',
         padding: '30px',
         color: 'black'
@@ -52,8 +53,8 @@ export const MainPage = () => {
     }
 
     const questionContainerStyle = {
-        fontFamily: 'Open Sans',
-        fontSize: isMobile ? '2em' : '3em',
+        
+        fontSize: isMobile ? '1em' : '2em',
         textAlign: 'center',
         color: 'white',
         position: 'absolute',
@@ -63,14 +64,56 @@ export const MainPage = () => {
         userSelect: 'none', // Make text non-selectable
     }
 
+
+    const [part1, setPart1] = useState("");
+    const [part2, setPart2] = useState("");
+    async function fetchdata() {
+        try {
+          const response = await fetchwyrdata();
+          if (response) {
+            console.log(response[0].question);
+            // Extract the question
+            const question = response[0].question;
+  
+            // Define the delimiter
+            const delimiter = " or ";
+  
+            // Split the question into two parts
+  
+  
+            if (question.includes(delimiter)) {
+              const parts = question.split(delimiter);
+              const trimmedPart1 = parts[0].replace("Would you rather ", "").trim();
+              const trimmedPart2 = parts[1].trim();
+              setPart1(trimmedPart1);
+              setPart2(trimmedPart2);
+              
+            }
+          }
+        } catch (error) {
+          console.log("Error fetching data:", error);
+        }
+      }
+    useEffect(() => {
+
+      fetchdata();
+    }, []);
     const handleLeftSideClick = () => {
-        console.log('Left side clicked');
+       fetchdata();
     }
 
     const handleRightSideClick = () => {
-        console.log('Right side clicked');
+        fetchdata();
     }
-
+    const generateRandomProgress = () => Math.floor(Math.random() * (75 - 25 + 1)) + 25;
+  
+    const [progress, setProgress] = useState(generateRandomProgress());
+  
+    function handleClick() {
+      const newProgress = generateRandomProgress();
+      setProgress(newProgress);
+      console.log("Progress updated to:", newProgress);
+    }
     return (
         <div style={backgroundStyle}>
             <div style={titleContainerStyle}>
@@ -81,13 +124,15 @@ export const MainPage = () => {
 
             <div style={leftContainerStyle} onClick={handleLeftSideClick}>
                 <div style={questionContainerStyle}>
-                    Kill children in Syria
+                    {part1}
                 </div>
+                <Progress progress={progress} background={"#ff0000"} color={"#0258f5"}/>
             </div>
             <div style={rightContainerStyle} onClick={handleRightSideClick}>
                 <div style={questionContainerStyle}>
-                    Kill children in Yemen
+                    {part2}
                 </div>
+                <Progress progress={100- progress} background={"#0258f5"} color={"#ff0000"}/>
             </div>
         </div>
     );

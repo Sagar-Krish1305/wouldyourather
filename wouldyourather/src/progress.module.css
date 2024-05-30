@@ -3,7 +3,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
+  position: absolute;
+  bottom: 5%;
+  left: 40%;
 }
 
 .svg {
@@ -12,9 +14,10 @@
 }
 
 .text {
-  font-size: 30px;
+  font-size: 50px;
   fill: #3c3c3c;
   text-anchor: middle;
+  font-weight: bolder;
 }
 
 .subtitle {
