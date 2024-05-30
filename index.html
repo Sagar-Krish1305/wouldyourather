@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twitter Post</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e6ecf0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .twitter-post {
+            background-color: #fff;
+            border: 1px solid #e1e8ed;
+            border-radius: 10px;
+            width: 400px;
+            padding: 20px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        }
+        .profile-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .profile-pic {
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+        .profile-name {
+            font-weight: bold;
+        }
+        .profile-handle {
+            color: #657786;
+            margin-left: 5px;
+        }
+        .blue-tick {
+            width: 20px;
+            height: 20px;
+            margin-left: 5px;
+        }
+        .tweet-content {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        .tweet-footer {
+            color: #657786;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        .icons {
+            display: flex;
+            justify-content: space-between;
+            width: 80%;
+            margin: 0 auto;
+        }
+        .icon {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            color: #657786;
+        }
+        .icon img {
+            width: 18px;
+            height: 18px;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="twitter-post">
+        <div class="profile-info">
+            <img src="profile.svg" alt="Profile Picture" class="profile-pic">
+            <div>
+                <span class="profile-name">John Doe</span>
+                <img src="bluetick.svg" alt="Blue Tick" class="blue-tick">
+                <span class="profile-handle">@johndoe</span>
+            </div>
+        </div>
+        <div class="tweet-content">
+            I'm learning cloud tech in this heat, expecting it to shower me with new opportunities!
+        </div>
+        <div class="tweet-footer">
+            2:30 PM · May 22, 2024
+        </div>
+        <div class="icons">
+            <div class="icon">
+                <img src="comment-icon.png" alt="Comment">
+                <span>12</span>
+            </div>
+            <div class="icon">
+                <img src="retweet-icon.png" alt="Retweet">
+                <span>34</span>
+            </div>
+            <div class="icon">
+                <img src="like-icon.png" alt="Like">
+                <span>56</span>
+            </div>
+            <div class="icon">
+                <img src="share-icon.png" alt="Share">
+            </div>
+            <div class="icon">
+                <img src="save-icon.png" alt="Save">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
