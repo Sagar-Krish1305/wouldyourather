@@ -12,13 +12,23 @@ dist
 dist-ssr
 *.local
 
+careitproject
+megablogproject
+stockprofitcalc
+tripmapper
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
 .idea
 .DS_Store
 *.suo
-*.ntvs*
+.ntvs
 *.njsproj
 *.sln
 *.sw?
+# dotenv environment variable files
+.env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
