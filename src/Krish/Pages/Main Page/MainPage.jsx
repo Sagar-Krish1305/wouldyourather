@@ -35,7 +35,7 @@ export const MainPage = (
     }
 
     const titleStyle = {
-        fontSize: isMobile ? '4em' : '5em',
+        fontSize: isMobile ? '3em' : '5em',
         padding: '30px',
         color: 'black'
     }
@@ -54,7 +54,7 @@ export const MainPage = (
 
     const questionContainerStyle = {
         
-        fontSize: isMobile ? '1em' : '2em',
+         fontSize: isMobile ? '2em' : '2.5em',
         textAlign: 'center',
         color: 'white',
         position: 'absolute',
