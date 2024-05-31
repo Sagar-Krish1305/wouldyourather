@@ -32,7 +32,7 @@ const CircularProgress = ({ value }) => {
       <div
         className="progress-circle"
         style={{ background: `conic-gradient(#598ef0 ${angle}deg,#f15361 ${angle}deg)` }}
-      >
+      > 
      
       </div>
     </div>
