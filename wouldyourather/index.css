@@ -1,0 +1,63 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.streak-box {
+    background: linear-gradient(45deg, #4CAF50, #2196F3);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+}
+
+.streak-box h2 {
+    margin-top: 0;
+    text-align: center;
+    color: #fff;
+}
+
+.streak-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 columns with equal width */
+    gap: 5px; /* Gap between items */
+}
+
+.streak-item {
+    font-size: 1.2em ;
+    font-weight: bolder;
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    border: 1px solid transparent; /* Hide border initially */
+    border-radius: 15% ;
+    background: linear-gradient(45deg, #f7dbdb, #f3f3f3); /* Add gradient background */
+    transition: all 0.3s ease; /* Smooth transition on hover */
+}
+
+.streak-item.completed {
+    display: flex;
+    background: linear-gradient(45deg, #50cc50, #4CAF50);
+    border: 1px solid #4CAF50;
+    font-weight: bold;
+    color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    justify-content: center; /* Add this line to horizontally center the content */
+}
+
+.streak-item.completed img {
+    max-width: 100%; /* Optional: Ensure the image doesn't exceed the container's width */
+}
+
+
+.streak-item:hover {
+    transform: translateY(-3px); /* Lift item on hover */
+}
