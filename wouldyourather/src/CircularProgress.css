@@ -23,6 +23,7 @@
   align-items: center;
   position: absolute;
   bottom: 0; /* Position the progress bar at the bottom */
+  border: 4px solid rgb(255, 255, 255);
 }
 
 .progress-percentage {
