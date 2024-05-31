@@ -1,6 +1,6 @@
 import React , {useEffect , useState} from 'react';
 import fetchwyrdata from "../../../fetchdata/fetchwyr";
-import Progress from "../../../Progress"
+import Progress from "../../../CircularProgress"
 export const MainPage = (
 ) => {
 
@@ -128,13 +128,13 @@ export const MainPage = (
                 <div style={questionContainerStyle}>
                     {part1}
                 </div>
-                <Progress progress={progress} background={"#ff0000"} color={"#0258f5"}/>
+                <Progress value={progress}/>
             </div>
             <div style={rightContainerStyle} onClick={handleRightSideClick}>
                 <div style={questionContainerStyle}>
                     {part2}
                 </div>
-                <Progress progress={100- progress} background={"#0258f5"} color={"#ff0000"}/>
+                <Progress value={100- progress} />
             </div>
         </div>
     );
