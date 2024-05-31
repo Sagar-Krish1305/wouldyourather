@@ -35,7 +35,7 @@ export const MainPage = (
     }
 
     const titleStyle = {
-        fontSize: isMobile ? '3em' : '5em',
+        fontSize: isMobile ? '4em' : '5em',
         padding: '30px',
         color: 'black'
     }
